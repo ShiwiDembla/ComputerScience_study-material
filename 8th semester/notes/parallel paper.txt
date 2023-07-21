@@ -1,0 +1,15 @@
+security measures for cloud
+characteristics of cloud
+multiple core single core
+multi processing parallel processing
+load balancing and memory 
+aws usage
+flynns taxonomy
+mpi
+gpu vs cpu
+full vs para virtualization
+vm vs containers
+openstack
+data parallel vs task parallel
+5 vs of big data
+pipelining

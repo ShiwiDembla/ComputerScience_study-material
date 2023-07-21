@@ -1,0 +1,8 @@
+C:\Windows\system32;
+C:\Windows;
+C:\Windows\System32\Wbem;
+C:\Windows\System32\WindowsPowerShell\v1.0\;
+C:\Windows\System32\OpenSSH\;
+C:\Program Files\Git\cmd;
+C:\Users\Shiwani\AppData\Local\Programs\Python\Python310;
+C:\Users\Shiwani\AppData\Local\Programs\Python\Python310\~cripts

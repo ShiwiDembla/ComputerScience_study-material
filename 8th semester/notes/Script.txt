@@ -1,0 +1,16 @@
+Content:
+issues in not exercising
+exercising at home but injuries
+post estimation and real time detection
+text to speech?
+
+
+
+Script:
+AoA, I'm Shiwani from Sukkur IBA.
+These days, many people practice yoga at their homes for their well being,
+since being at home can't rectify their poses which may lead to long injuries
+Taking a step into the future of exercising, An app that uses your phone’s camera to track your asanas and 
+give you real-time feedback on your moves and poses.
+It calculate angles when framed for a pose, check similiarity and classify the pose as correct/incorrect.
+It gives real time feedback, to correct our pose.i.e Sit straight. 

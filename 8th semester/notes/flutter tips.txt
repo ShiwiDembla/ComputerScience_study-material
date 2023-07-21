@@ -1,0 +1,5 @@
+text separate from ui for localisation.
+find icons and font/color.
+design logo.
+talk to leo about coding and that flutter guy.
+laravel confirm?

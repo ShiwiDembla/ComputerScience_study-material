@@ -1,0 +1,91 @@
+!pip install statsmodels
+
+from statsmodels import datasets
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+dataset = datasets.co2.load_pandas().data
+
+dataset.head()
+
+dataset = dataset.interpolate()
+dataset
+
+plt.plot(dataset)
+
+import statsmodels.tsa.seasonal as season
+
+
+result = season.seasonal_decompose(dataset)
+result.plot()
+
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf 
+plot_acf(dataset)
+
+plot_pacf(dataset)
+
+# check for stationary
+#  dickey test
+from statsmodels.tsa.stattools import adfuller
+adfuller(dataset.co2.values)
+# first value tells us adf
+# 2nd value p
+#3rd value lag
+
+#storing the values 
+adf,pval,used_lag,nops,crit_val, ic_based =adfuller(dataset.co2.values)
+
+# data is stationary
+# unit root is present.
+# p value > 5%
+
+
+# removes trend and high jumps/shifts
+pre_value = dataset.co2.shift()
+pre_value
+
+pre_value.plot()
+
+co2_data = dataset.co2
+co2_data
+
+x =  co2_data - pre_value
+x
+
+# trend removed
+x.plot()
+
+
+
+prev_co2_value = co2_data.shift()
+differenced_co2 = co2_data - prev_co2_value
+differenced_co2.plot()
+
+adf, pval, usedlag, nobs, crit_vals, icbest =  adfuller(differenced_co2.dropna())
+print('ADF test statistic:', adf)
+print('ADF p-values:', pval)
+print('ADF number of lags used:', usedlag)
+print('ADF number of observations:', nobs)
+print('ADF critical values:', crit_vals)
+print('ADF best information criterion:', icbest)
+
+
+
+!pip install pmdarima
+
+import pmdarima as pm
+from pmdarima.model_selection import train_test_split
+import numpy as np
+import matplotlib.pyplot as plt
+
+train, test = train_test_split(co2_data.values, train_size=2200)
+
+model = pm.auto_arima(train, seasonal=True, m=52)
+preds = model.predict(test.shape[0])
+
+x = np.arange(y.shape[0])
+plt.plot(co2_data.values[:2200], train)
+plt.plot(co2_data.values[2200:], preds)
+plt.show()
+
